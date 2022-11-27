@@ -15,14 +15,13 @@ function speechToText(){
 
     // This runs when the speech recognition service starts
     recognition.onstart = function() {
-        console.log('clicked==>');
+
         btn.innerHTML = btnStop;
     };
 
     recognition.onspeechend = function() {
         btn.innerHTML = btnStart;
         recognition.stop();
-        console.log('stop==>');
     }
 
     // This runs when the speech recognition service returns result
@@ -30,8 +29,6 @@ function speechToText(){
         var transcript = event.results[0][0].transcript;
         var confidence = event.results[0][0].confidence;
         output.innerHTML = transcript;
-
-        console.log('spoken==>',transcript);
     };
 
     // start recognition
